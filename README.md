@@ -1,2 +1,4 @@
 # twitter-api-io-example
-an node/io server that collects twitter streams
+a node/io server that collects twitter streams
+created for playing around with iojs and the twitter api!
+a work in progress!
