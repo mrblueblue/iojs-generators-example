@@ -18,7 +18,6 @@
   "homepage": "https://github.com/mrblueblue/twitter-api-io-example",
   "dependencies": {
     "express": "^4.12.4",
-    "nodemon": "^1.3.7",
     "twitter": "^1.2.5"
   }
 }
