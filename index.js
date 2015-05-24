@@ -18,8 +18,7 @@ app.get('/iojs', (req, res) => {
       res.sendStatus(404);
     }
   })
-
-})
+});
 
 const server = app.listen(3000, function () {
   let host = server.address().address;
