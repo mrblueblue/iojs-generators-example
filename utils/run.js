@@ -1,17 +1,17 @@
 'use strict'
 
 const run = function(generator) {
-	const gen = generator();
-	next();
+  let gen = generator();
+  next();
 
-	function next(error, value){
+  function next(error, value){
 
-		if (error) return gen.throw(error);
-		let continuable = gen.next(value);
-		if (continuable.done) return;
-		let callback = continuable.value;
-		callback(next);
-	}
+    if (error) return gen.throw(error);
+    let continuable = gen.next(value);
+    if (continuable.done) return;
+    let callback = continuable.value;
+    callback(next);
+  }
 }
 
 module.exports = run;
