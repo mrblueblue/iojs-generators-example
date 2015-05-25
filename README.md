@@ -2,20 +2,16 @@
 
 #### Overview
 
-A node/io server that makes use of the Twitter API.
-
-Currently, it grabs the most recent tweets from San Francisco.
+A node/io server that makes use of the Twitter API. Currently, it grabs the most recent tweets from San Francisco.
 
 I created this play around with: 
-*io.js
-*ES6 Generators
-*Twitter API
-
-This is work in progress!
+- io.js
+- ES6 Generators
+- Twitter API
 
 #### Getting Started
 
-Register an 
+[Register](https://apps.twitter.com/) an Twitter application. Create a `config.js` file in the root directory using the auth information of your applicaiton.
 
 Once you've set up everything for the Twitter API, you can start running the server!
 
