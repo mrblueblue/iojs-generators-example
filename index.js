@@ -3,7 +3,9 @@
 const app = require('express')();
 
 const twitter = require('./utils/twitter-api');
+const google = require('./utils/google-api');
 const run = require('./utils/run');
+const request = require('request');
 
 app.get('/', (req, res) => {
   res.send('i am a iojs server using the twitter api');
@@ -34,6 +36,21 @@ app.get('/sf', (req, res) => {
       res.sendStatus(404);
     }
   })
+});
+
+// Google Geocode API
+app.get('/google', (req, res) => {
+  run(function*(){
+    try {
+      let location = yield google.geocode('san francisco');
+      let latitude = location[0].latitude;
+      let longitude = location[0].longitude;
+      console.log(latitude, longitude);
+      res.send(location);
+    } catch(e) {
+      res.sendStatus(404);
+    }
+  });
 });
 
 const server = app.listen(3000, function () {
