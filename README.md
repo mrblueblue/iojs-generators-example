@@ -1,22 +1,35 @@
 ### twitter-api-io-example
 
-a node/io server that collects twitter streams
+#### Overview
 
-created for playing around with iojs and the twitter api!
+A node/io server that makes use of the Twitter API.
 
-### twitter-api-io-example
+Currently, it grabs the most recent tweets from San Francisco.
 
-a node/io server that collects twitter streams
+I created this play around with: 
+*io.js
+*ES6 Generators
+*Twitter API
 
-created for playing around with iojs and the twitter api!
+This is work in progress!
 
-a work in progress!
+#### Getting Started
 
-### es6 features
+Register an 
 
-#### generators
+Once you've set up everything for the Twitter API, you can start running the server!
 
-generators are used to make async code cleaner. 
+```javascript
+npm install
+nvm use
+nodemon index.js
+```
+
+Now, you can make GET requests to `localhost:3000/sf` to see the most recent tweets from SF
+
+#### ES6 Generators
+
+Generators are used to make async code cleaner. You can find more about them [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*)
 
 ```javascript
 // pattern with generators 
