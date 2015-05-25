@@ -9,6 +9,7 @@ app.get('/', (req, res) => {
   res.send('i am a iojs server using the twitter api');
 });
 
+// First iteration of the API endpoint
 app.get('/sf', (req, res) => {
   run(function*(){
     try {
