@@ -1,55 +1,37 @@
 'use strict'
 
 const app = require('express')();
-
 const twitter = require('./utils/twitter-api');
 const google = require('./utils/google-api');
 const run = require('./utils/run');
-const request = require('request');
 
-app.get('/', (req, res) => {
-  res.send('i am a iojs server using the twitter api');
-});
+app.get('/tweets', (req, res) => {
 
-// First iteration of the API endpoint
-app.get('/sf', (req, res) => {
+  if (!req.query.location) {
+    res.send('please provide a location');
+  }
+
   run(function*(){
-    try {
 
-      let params = {
-        geocode: '37.781157,-122.398720,4mi', // San Francisco
-        count: 50,
-        lang: 'en',
-        result_type: 'recent'  
-      };
+    let location = yield google.geocode(req.query.location);
+    let latitude = location[0].latitude;
+    let longitude = location[0].longitude;
 
-      let tweets = yield twitter.search(params)
-      let text = tweets.statuses.map((tweet)=>{
-        if (!tweet.retweeted_status) return tweet.text
-        else return tweet.retweeted_status.text
-      });
-
-      console.log(text);
-      res.send(text);
-
-    } catch(e) {
-      res.sendStatus(404);
+    let params = {
+      geocode: `${latitude},${longitude},10mi`,
+      count: 50,
+      lang: 'en',
+      result_type: 'recent'  
     }
-  })
-});
 
-// Google Geocode API
-app.get('/google', (req, res) => {
-  run(function*(){
-    try {
-      let location = yield google.geocode('san francisco');
-      let latitude = location[0].latitude;
-      let longitude = location[0].longitude;
-      console.log(latitude, longitude);
-      res.send(location);
-    } catch(e) {
-      res.sendStatus(404);
-    }
+    let tweets = yield twitter.search(params)
+    let text = tweets.statuses.map((tweet) => {
+      if (!tweet.retweeted_status) return tweet.text
+      else return tweet.retweeted_status.text
+    });
+
+    console.log(text);
+    res.send(text);
   });
 });
 
