@@ -1,14 +1,10 @@
-### twitter-api-io-example
-
 #### Overview
 
-A node/io server that makes use of the Twitter API. Currently, it only exposes an API endpoint that grabs the most recent tweets from San Francisco. I created this to play around with: 
+An io.js server that makes use of ES6 Generators and the Twitter and Google Geocode APIs. Query the server for a location and it will return the most recent tweets for that location. I created this to play around with: 
 - io.js
 - ES6 Generators
 - Twitter API
 - Google Maps API
-
-This is a work in progress.
 
 #### Getting Started
 
