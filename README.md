@@ -20,7 +20,7 @@ nvm use
 nodemon index.js
 ```
 
-Now, you can make GET requests to `localhost:3000/sf` to see the most recent tweets from SF.
+Now, you can make GET requests to `localhost:3000/tweets?locations=` to see the most recent tweets for any location.
 
 #### ES6 Generators
 
