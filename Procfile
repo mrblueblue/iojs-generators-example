@@ -1,0 +1,1 @@
+web: iojs --harmony-arrow-functions server/index.js
