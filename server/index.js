@@ -47,7 +47,7 @@ const server = app.listen(process.env.PORT || 3000, function () {
   let host = server.address().address;
   let port = server.address().port;
   console.log('iojs server listening at http://%s:%s', host, port);
-  console.log('send a GET request to /tweets?location= to get the most recent tweets from that location');
+  console.log('send a GET request to /api/tweets?location= to get the most recent tweets from that location');
 });
 
 
