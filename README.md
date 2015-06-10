@@ -1,16 +1,18 @@
-### twitter-api-io-example
-
 #### Overview
 
-A node/io server that makes use of the Twitter API. Currently, it only exposes an API endpoint that grabs the most recent tweets from San Francisco. I created this to play around with: 
+An io.js server that makes use of ES6 Generators and the Twitter and Google Geocode APIs. Query the server for a location and it will return the most recent tweets for that location. I created this to play around with: 
 - io.js
 - ES6 Generators
 - Twitter API
 - Google Maps API
 
-This is a work in progress.
+#### Using the API
 
-#### Getting Started
+To use the API, make a `GET` request to `iojs-twitter.herokuapp.com/api/tweets?location=query`, where `query` is equal to the location for which you want to see the most recent tweets. For example, in `curl` you would do (though the output would be ugly):
+
+    curl http://iojs-twitter.herokuapp.com/api/tweets?location=oakland
+
+#### Running Locally
 
 [Register](https://apps.twitter.com/) an Twitter application. 
 
@@ -24,7 +26,7 @@ nvm use
 nodemon index.js
 ```
 
-Now, you can make GET requests to `localhost:3000/sf` to see the most recent tweets from SF.
+Now, you can make GET requests to `localhost:3000/api/tweets?locations=` to see the most recent tweets for any location.
 
 #### ES6 Generators
 
